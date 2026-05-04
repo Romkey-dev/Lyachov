@@ -6,7 +6,7 @@
 ## Структура проекта
 ```
 python-lab-10/
-├── todo-app/            # Часть 1: React + Vite + TypeScript
+├── src/                 # Todo-app: React + Vite + TypeScript
 ├── README.md            # Данный файл
 └── Отчёт.md             # Отчёт о выполнении работы
 ```
