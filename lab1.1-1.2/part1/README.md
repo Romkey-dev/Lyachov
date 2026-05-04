@@ -1,22 +1,56 @@
-# Лабораторная работа №10: Современная веб-разработка
+# React + Vite To-Do App
 
-## Описание
-Данная лабораторная работа посвящена изучению основ современной фронтенд-разработки с использованием React и Next.js. Работа разделена на две части: создание To-Do приложения.
+Простое React-приложение для управления списком задач (To-Do List).
+
+## Стек
+
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+
+## Установка
+
+```bash
+cd todo-app
+npm install
+```
+
+## Запуск
+
+```bash
+npm run dev
+```
+
+Приложение будет доступно по адресу: http://localhost:5173
+
+## Сборка
+
+```bash
+npm run build
+npm run preview
+```
 
 ## Структура проекта
+
 ```
-python-lab-10/
-├── src/                 # Todo-app: React + Vite + TypeScript
-├── README.md            # Данный файл
-└── Отчёт.md             # Отчёт о выполнении работы
+todo-app/
+├── src/
+│   ├── App.tsx          # Основной компонент
+│   ├── main.tsx         # Точка входа
+│   └── index.css       # Стили Tailwind
+├── public/              # Статические файлы
+├── index.html          # HTML шаблон
+├── package.json        # Зависимости
+├── tailwind.config.js  # Конфигурация Tailwind
+├── vite.config.ts      # Конфигурация Vite
+└── tsconfig.json       # Конфигурация TypeScript
 ```
 
-## Часть 1: Todo App
-Приложение для управления списком задач.
-- **Стек:** React, Vite, TypeScript, Tailwind CSS.
-- **Запуск:**
-  ```bash
-  cd todo-app
-  npm install
-  npm run dev
-  ```
+## Функционал
+
+- Добавление новых задач
+- Удаление задач
+- Отметка задач как выполненные
+- Статистика выполненных задач
+- Обработка пустого списка задач
