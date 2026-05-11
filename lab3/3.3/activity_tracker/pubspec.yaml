@@ -1,0 +1,50 @@
+name: activity_tracker
+description: Кроссплатформенное мобильное приложение для отслеживания физической активности с использованием Flutter.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Управление состоянием
+  provider: ^6.1.1
+
+  # Навигация
+  go_router: ^13.0.0
+
+  # Работа с датчиками
+  sensors_plus: ^4.0.0
+  pedometer: ^4.0.0
+
+  # Геолокация и карты
+  location: ^5.0.0
+  google_maps_flutter: ^2.5.0
+
+  # Хранение данных
+  sqflite: ^2.3.0
+  path: ^1.9.0
+
+  # Графики
+  fl_chart: ^0.66.0
+
+  # Анимации
+  lottie: ^2.7.0
+
+  # Работа с датами
+  intl: ^0.18.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  # assets:
+  #   - assets/animations/
+  #   - assets/images/
