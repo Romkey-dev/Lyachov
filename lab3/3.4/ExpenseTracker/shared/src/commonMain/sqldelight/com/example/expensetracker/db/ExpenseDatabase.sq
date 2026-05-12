@@ -1,0 +1,62 @@
+import kotlin.Long
+
+CREATE TABLE category (
+  id INTEGER NOT NULL PRIMARY KEY,
+  name TEXT NOT NULL,
+  color TEXT NOT NULL,
+  icon TEXT NOT NULL,
+  isDefault INTEGER NOT NULL
+);
+
+CREATE TABLE expense (
+  id INTEGER NOT NULL PRIMARY KEY,
+  title TEXT NOT NULL,
+  amount REAL NOT NULL,
+  categoryId INTEGER NOT NULL,
+  date INTEGER NOT NULL,
+  note TEXT,
+  isSynced INTEGER NOT NULL,
+  FOREIGN KEY(categoryId) REFERENCES category(id)
+);
+
+CREATE TABLE budget (
+  id INTEGER NOT NULL PRIMARY KEY,
+  categoryId INTEGER NOT NULL,
+  limit REAL NOT NULL,
+  month INTEGER NOT NULL,
+  FOREIGN KEY(categoryId) REFERENCES category(id)
+);
+
+insertCategory:
+INSERT INTO category(id, name, color, icon, isDefault)
+VALUES (?, ?, ?, ?, ?);
+
+selectAllCategories:
+SELECT * FROM category;
+
+insertExpense:
+INSERT INTO expense(id, title, amount, categoryId, date, note, isSynced)
+VALUES (?, ?, ?, ?, ?, ?, ?);
+
+selectAllExpenses:
+SELECT * FROM expense ORDER BY date DESC;
+
+deleteById:
+DELETE FROM expense WHERE id = ?;
+
+sumByCategory:
+SELECT COALESCE(SUM(amount), 0) as total
+FROM expense
+WHERE categoryId = ? AND date >= ? AND date < ?;
+
+countByCategory:
+SELECT COUNT(*)
+FROM expense
+WHERE categoryId = ? AND date >= ? AND date < ?;
+
+insertBudget:
+INSERT OR REPLACE INTO budget(id, categoryId, limit, month)
+VALUES (?, ?, ?, ?);
+
+getBudgetByCategory:
+SELECT * FROM budget WHERE categoryId = ?;

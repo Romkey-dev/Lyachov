@@ -1,0 +1,275 @@
+:root {
+    --primary-color: #0F172A;
+    --secondary-color: #2563EB;
+    --background: #F8FAFC;
+    --card-bg: #FFFFFF;
+    --border-color: #E2E8F0;
+    --text-color: #111827;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background-color: var(--background);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nav-btn:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn.active {
+    color: white;
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.header-controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.install-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.install-btn:hover {
+    background-color: #1D4ED8;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.search-bar {
+    background-color: white;
+    border-top: 1px solid var(--border-color);
+}
+
+.search-bar .container {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem 0;
+}
+
+#searchInput {
+    flex: 1;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+}
+
+#searchBtn,
+#searchClose {
+    background-color: var(--secondary-color);
+    border: none;
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#searchClose {
+    background-color: #475569;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+.news-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.news-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 1.5rem;
+}
+
+.news-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.news-description {
+    color: #64748B;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    color: #94A3B8;
+    font-size: 0.85rem;
+}
+
+.offline-indicator {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1rem;
+    background: #f59e0b;
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    z-index: 1000;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--secondary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-message {
+    text-align: center;
+    padding: 2rem;
+    color: #EF4444;
+}
+
+.error-message button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+}
+
+footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+    .news-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости PWA</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Новости PWA</div>
+            <nav>
+                <button class="nav-btn active" data-category="general">Главное</button>
+                <button class="nav-btn" data-category="business">Бизнес</button>
+                <button class="nav-btn" data-category="technology">Технологии</button>
+                <button class="nav-btn" data-category="sports">Спорт</button>
+                <button class="nav-btn" data-category="health">Здоровье</button>
+            </nav>
+            <div class="header-controls">
+                <button id="searchToggle" class="icon-btn">🔍</button>
+                <button id="installBtn" class="install-btn hidden">Установить</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="search-bar hidden" id="searchBar">
+        <div class="container">
+            <input id="searchInput" type="text" placeholder="Поиск новостей...">
+            <button id="searchBtn">Найти</button>
+            <button id="searchClose">Закрыть</button>
+        </div>
+    </section>
+
+    <div class="offline-indicator hidden" id="offlineIndicator">Вы офлайн</div>
+
+    <main class="container">
+        <div id="loadingSpinner" class="spinner hidden">
+            <div class="loader"></div>
+        </div>
+        <div id="errorMessage" class="error-message hidden">
+            <p>Не удалось загрузить новости.</p>
+            <button id="retryBtn">Повторить</button>
+        </div>
+        <div id="newsGrid" class="news-grid"></div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Новости PWA. Оффлайн-режим и push-уведомления.</p>
+        </div>
+    </footer>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/pwa.js"></script>
+</body>
+</html>
