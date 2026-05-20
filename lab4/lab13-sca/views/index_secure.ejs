@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Comment Board (Secure)</title>
+</head>
+<body>
+    <h1>Comment Board (Secure)</h1>
+    <form action="/comment" method="POST">
+        <label>Username:</label>
+        <input type="text" name="username">
+        <label>Comment:</label>
+        <textarea name="comment"></textarea>
+        <button type="submit">Send</button>
+    </form>
+
+    <h2>Comments</h2>
+    <div id="comments"></div>
+
+    <script nonce="<%= cspNonce %>">
+        const comments = <%- JSON.stringify(comments) %>;
+        const container = document.getElementById('comments');
+        comments.forEach(item => {
+            const wrapper = document.createElement('div');
+            const author = document.createElement('strong');
+            author.textContent = item.username;
+            const text = document.createElement('div');
+            text.textContent = item.comment;
+            const date = document.createElement('small');
+            date.textContent = item.created_at;
+            wrapper.appendChild(author);
+            wrapper.appendChild(text);
+            wrapper.appendChild(date);
+            container.appendChild(wrapper);
+        });
+    </script>
+</body>
+</html>
