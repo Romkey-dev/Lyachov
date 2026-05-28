@@ -1,0 +1,7 @@
+{
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_API_URL": "https://your-container-url.cloud.yandex.net"
+    }
+  }
+}
